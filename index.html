@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNEAKER LAB - Nike Collection</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #1e1e1e;
+            border-bottom: 2px solid #333;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #aaa;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            width: 320px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #2a2a2a;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #333;
+            color: #00ff87;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .card-content h3 {
+            margin-bottom: 8px;
+            color: #fff;
+            font-size: 1.3rem;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #bbb;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .like-btn {
+            background-color: #2a2a2a;
+            color: #ff4757;
+            border: 1px solid #ff4757;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .like-btn:hover {
+            background-color: #ff4757;
+            color: #fff;
+        }
+
+        .like-btn.liked {
+            background-color: #ff4757;
+            color: #ffffff;
+        }
+
+        .buy-btn {
+            text-decoration: none;
+            color: #fff;
+            background-color: #0070f3;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .buy-btn:hover {
+            background-color: #0051a8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>⚡ NIKE SNEAKER LAB</h1>
+        <p>Minha seleção dos modelos mais icônicos da cultura streetwear.</p>
+    </header>
+
+    <main class="gallery-container">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80" alt="Nike Air Force 1">
+            <div class="card-content">
+                <span class="tag">Classico</span>
+                <h3>Air Force 1 '07</h3>
+                <p>O clássico atemporal dos anos 80 em versão Triple White. Essencial para qualquer estilo.</p>
+                <div class="card-actions">
+                    <button class="like-btn">❤️ <span class="like-count">0</span></button>
+                    <a href="https://www.nike.com.br" target="_blank" class="buy-btn">Ver na Nike</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500&q=80" alt="Nike Air Jordan 1">
+            <div class="card-content">
+                <span class="tag">Basquete</span>
+                <h3>Air Jordan 1 High</h3>
+                <p>Criado originalmente para Michael Jordan em 1985, um ícone da cultura sneakerhead.</p>
+                <div class="card-actions">
+                    <button class="like-btn">❤️ <span class="like-count">0</span></button>
+                    <a href="https://www.nike.com.br" target="_blank" class="buy-btn">Ver na Nike</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=500&q=80" alt="Nike Dunk Low">
+            <div class="card-content">
+                <span class="tag">Skate</span>
+                <h3>Nike Dunk Low</h3>
+                <p>Do basquete ao skate, um dos modelos mais requisitados pelas combinações de cores.</p>
+                <div class="card-actions">
+                    <button class="like-btn">❤️ <span class="like-count">0</span></button>
+                    <a href="https://www.nike.com.br" target="_blank" class="buy-btn">Ver na Nike</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const botoesLike = document.querySelectorAll('.like-btn');
+
+        botoesLike.forEach(function(botao) {
+            botao.addEventListener('click', function() {
+                const spanContador = botao.querySelector('.like-count');
+                let curtidasAtuais = parseInt(spanContador.textContent);
+
+                if (botao.classList.contains('liked')) {
+                    botao.classList.remove('liked');
+                    curtidasAtuais--;
+                } else {
+                    botao.classList.add('liked');
+                    curtidasAtuais++;
+                }
+
+                spanContador.textContent = curtidasAtuais;
+            });
+        });
+    </script>
+</body>
+</html>
